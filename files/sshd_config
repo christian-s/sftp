@@ -3,13 +3,14 @@
 Protocol 2
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
+MaxAuthTries 20
 
 # Faster connection
 # See: https://github.com/atmoz/sftp/issues/11
 UseDNS no
 
 # Limited access
-PermitRootLogin no
+PermitRootLogin yes
 X11Forwarding no
 AllowTcpForwarding no
 
@@ -19,4 +20,5 @@ ForceCommand internal-sftp
 ChrootDirectory %h
 
 # Enable this for more logs
-#LogLevel VERBOSE
+#QUIET, FATAL, ERROR, INFO, VERBOSE, DEBUG, DEBUG1, DEBUG2, and DEBUG3
+LogLevel ERROR
